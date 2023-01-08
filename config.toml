@@ -1,0 +1,4 @@
+baseURL = 'https://wangzhe3224.github.io/quant-box/'
+languageCode = 'en-us'
+title = 'QuantBox'
+theme = 'ananke'
