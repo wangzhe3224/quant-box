@@ -1,6 +1,4 @@
-[submodule "themes/ananke"]
-	path = themes/ananke
-	url = https://github.com/theNewDynamic/gohugo-theme-ananke
-[submodule "themes/LoveIt"]
-	path = themes/LoveIt
-	url = https://github.com/dillonzq/LoveIt.git
+[submodule "themes/LoveI"]
+	path = themes/LoveI
+	url = https://github.com/wangzhe3224/LoveIt.git
+    branch = master

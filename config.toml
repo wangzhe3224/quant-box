@@ -1,12 +1,94 @@
-baseURL = 'https://wangzhe3224.github.io/quant-box/'
-theme = 'LoveIt'
-languageCode = 'en-us'
+baseURL = 'https://wangzhe3224.github.io/quant-box'
+theme = 'LoveI'
+defaultContentLanguage = "zh-cn"
+
+[languages]
+
+  [languages.zh-cn]
+    weight = 1
+    title = "QuantBox"
+    languageCode = "zh-CN"
+    languageName = "简体中文"
+    hasCJKLanguage = true
+    [[languages.zh-cn.menu.main]]
+      weight = 1
+      identifier = "posts"
+      pre = ""
+      post = ""
+      name = "文章"
+      url = "/posts/"
+      title = ""
+    [[languages.zh-cn.menu.main]]
+      weight = 2
+      identifier = "tags"
+      pre = ""
+      post = ""
+      name = "标签"
+      url = "/tags/"
+      title = ""
+    [[languages.zh-cn.menu.main]]
+      weight = 3
+      identifier = "categories"
+      pre = ""
+      post = ""
+      name = "分类"
+      url = "/categories/"
+      title = ""
+    [[languages.zh-cn.menu.main]]
+      weight = 4
+      identifier = "github"
+      pre = "<i class='fab fa-github fa-fw' aria-hidden='true'></i>"
+      post = ""
+      name = ""
+      url = "https://github.com/wangzhe3224/quant-box"
+      title = "GitHub"
+
+  [languages.en]
+    weight = 2
+    title = "QuantBox"
+    languageCode = "en"
+    languageName = "English"
+    [[languages.en.menu.main]]
+      weight = 1
+      identifier = "posts"
+      pre = ""
+      post = ""
+      name = "Posts"
+      url = "/posts/"
+      title = ""
+    [[languages.en.menu.main]]
+      weight = 2
+      identifier = "tags"
+      pre = ""
+      post = ""
+      name = "Tags"
+      url = "/tags/"
+      title = ""
+    [[languages.en.menu.main]]
+      weight = 3
+      identifier = "categories"
+      pre = ""
+      post = ""
+      name = "Categories"
+      url = "/categories/"
+      title = ""
+    [[languages.en.menu.main]]
+      weight = 4
+      identifier = "github"
+      pre = "<i class='fab fa-github fa-fw' aria-hidden='true'></i>"
+      post = ""
+      name = ""
+      url = "https://github.com/wangzhe3224/quant-box"
+      title = "GitHub"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
 
 [params]
   # site default theme ["auto", "light", "dark"]
   defaultTheme = "auto"
   # public git repo url only then enableGitInfo is true
-  # gitRepo = ""
+  gitRepo = "https://github.com/wangzhe3224/quant-box"
   # LoveIt NEW | 0.1.1 which hash function used for SRI, when empty, no SRI is used
   # ["sha256", "sha384", "sha512", "md5"]
   fingerprint = ""
@@ -50,7 +132,7 @@ languageCode = 'en-us'
     # LoveIt NEW | 0.2.0 whether to show the author
     author = true
     # Site creation time
-    since = 2019
+    since = 2023
     # ICP info only in China (HTML format is supported)
     icp = ""
     # license info (HTML format is supported)
@@ -104,7 +186,7 @@ languageCode = 'en-us'
     snippetLength = 30
     # LoveIt NEW | 0.2.1 HTML tag name of the highlight part in results
     highlightTag = "em"
-    # LoveIt NEW | 0.2.4 whether to use the absolute URL based on the baseURL in search index
+    # LoveIt NEW | 0.2.4 whether to use thQuantBoxe absolute URL based on the baseURL in search index
     absoluteURL = false
     [params.search.algolia]
       index = ""
@@ -148,39 +230,257 @@ languageCode = 'en-us'
   email = "funcoder.z@gmail.com"
   link = "https://github.com/wangzhe3224"
 
-# Menu config
-[menu]
-  [[menu.main]]
-    weight = 1
-    identifier = "posts"
-    # you can add extra information before the name (HTML format is supported), such as icons
-    pre = ""
-    # you can add extra information after the name (HTML format is supported), such as icons
-    post = ""
-    name = "Posts"
-    url = "/posts/"
-    # title will be shown when you hover on this menu link
-    title = ""
-  [[menu.main]]
-    weight = 2
-    identifier = "tags"
-    pre = ""
-    post = ""
-    name = "Tags"
-    url = "/tags/"
-    title = ""
-  [[menu.main]]
-    weight = 3
-    identifier = "categories"
-    pre = ""
-    post = ""
-    name = "Categories"
-    url = "/categories/"
-    title = ""
-
 # Markup related configuration in Hugo
 [markup]
   # Syntax Highlighting (https://gohugo.io/content-management/syntax-highlighting)
   [markup.highlight]
     # false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
     noClasses = false
+
+    # Page global config
+  # 文章页面全局配置
+  [params.page]
+    # whether to hide a page from home page
+    # 是否在主页隐藏一篇文章
+    hiddenFromHomePage = false
+    # whether to hide a page from search results
+    # 是否在搜索结果中隐藏一篇文章
+    hiddenFromSearch = false
+    # whether to enable twemoji
+    # 是否使用 twemoji
+    twemoji = false
+    # whether to enable lightgallery
+    # 是否使用 lightgallery
+    lightgallery = false
+    # whether to enable the ruby extended syntax
+    # 是否使用 ruby 扩展语法
+    ruby = true
+    # whether to enable the fraction extended syntax
+    # 是否使用 fraction 扩展语法
+    fraction = true
+    # whether to enable the fontawesome extended syntax
+    # 是否使用 fontawesome 扩展语法
+    fontawesome = true
+    # whether to show link to Raw Markdown content of the content
+    # 是否显示原始 Markdown 文档内容的链接
+    linkToMarkdown = true
+    # whether to show the full text content in RSS
+    # 是否在 RSS 中显示全文内容
+    rssFullText = false
+    # Table of the contents config
+    # 目录配置
+    [params.page.toc]
+      # whether to enable the table of the contents
+      # 是否使用目录
+      enable = true
+      # whether to keep the static table of the contents in front of the post
+      # 是否保持使用文章前面的静态目录
+      keepStatic = false
+      # whether to make the table of the contents in the sidebar automatically collapsed
+      # 是否使侧边目录自动折叠展开
+      auto = true
+    # Code config
+    # 代码配置
+    [params.page.code]
+      # whether to show the copy button of the code block
+      # 是否显示代码块的复制按钮
+      copy = true
+      # the maximum number of lines of displayed code by default
+      # 默认展开显示的代码行数
+      maxShownLines = 50
+    # KaTeX mathematical formulas config (KaTeX https://katex.org/)
+    # KaTeX 数学公式配置 (KaTeX https://katex.org/)
+    [params.page.math]
+      enable = false
+      # default inline delimiter is $ ... $ and \( ... \)
+      # 默认行内定界符是 $ ... $ 和 \( ... \)
+      inlineLeftDelimiter = ""
+      inlineRightDelimiter = ""
+      # default block delimiter is $$ ... $$, \[ ... \], \begin{equation} ... \end{equation} and some other functions
+      # 默认块定界符是 $$ ... $$, \[ ... \],  \begin{equation} ... \end{equation} 和一些其它的函数
+      blockLeftDelimiter = ""
+      blockRightDelimiter = ""
+      # KaTeX extension copy_tex
+      # KaTeX 插件 copy_tex
+      copyTex = true
+      # KaTeX extension mhchem
+      # KaTeX 插件 mhchem
+      mhchem = true
+    # Mapbox GL JS config (Mapbox GL JS https://docs.mapbox.com/mapbox-gl-js)
+    # Mapbox GL JS 配置 (Mapbox GL JS https://docs.mapbox.com/mapbox-gl-js)
+    [params.page.mapbox]
+      # access token of Mapbox GL JS
+      # Mapbox GL JS 的 access token
+      accessToken = "pk.eyJ1IjoiZGlsbG9uenEiLCJhIjoiY2s2czd2M2x3MDA0NjNmcGxmcjVrZmc2cyJ9.aSjv2BNuZUfARvxRYjSVZQ"
+      # style for the light theme
+      # 浅色主题的地图样式
+      lightStyle = "mapbox://styles/mapbox/light-v10?optimize=true"
+      # style for the dark theme
+      # 深色主题的地图样式
+      darkStyle = "mapbox://styles/mapbox/dark-v10?optimize=true"
+      # whether to add NavigationControl (https://docs.mapbox.com/mapbox-gl-js/api/#navigationcontrol)
+      # 是否添加 NavigationControl (https://docs.mapbox.com/mapbox-gl-js/api/#navigationcontrol)
+      navigation = true
+      # whether to add GeolocateControl (https://docs.mapbox.com/mapbox-gl-js/api/#geolocatecontrol)
+      # 是否添加 GeolocateControl (https://docs.mapbox.com/mapbox-gl-js/api/#geolocatecontrol)
+      geolocate = true
+      # whether to add ScaleControl (https://docs.mapbox.com/mapbox-gl-js/api/#scalecontrol)
+      # 是否添加 ScaleControl (https://docs.mapbox.com/mapbox-gl-js/api/#scalecontrol)
+      scale = true
+      # whether to add FullscreenControl (https://docs.mapbox.com/mapbox-gl-js/api/#fullscreencontrol)
+      # 是否添加 FullscreenControl (https://docs.mapbox.com/mapbox-gl-js/api/#fullscreencontrol)
+      fullscreen = true
+    # Social share links in post page
+    # 文章页面的分享信息设置
+    [params.page.share]
+      enable = true
+      Twitter = true
+      Facebook = true
+      Linkedin = false
+      Whatsapp = false
+      Pinterest = false
+      Tumblr = false
+      HackerNews = true
+      Reddit = false
+      VK = false
+      Buffer = false
+      Xing = false
+      Line = true
+      Instapaper = false
+      Pocket = false
+      Flipboard = false
+      Weibo = true
+      Blogger = false
+      Baidu = false
+      Odnoklassniki = false
+      Evernote = false
+      Skype = false
+      Trello = false
+      Mix = false
+    # Comment config
+    # 评论系统设置
+    [params.page.comment]
+      enable = true
+      # Disqus comment config (https://disqus.com/)
+      # Disqus 评论系统设置 (https://disqus.com/)
+      [params.page.comment.disqus]
+        enable = false
+        # Disqus shortname to use Disqus in posts
+        # Disqus 的 shortname，用来在文章中启用 Disqus 评论系统
+        shortname = ""
+      # Gitalk comment config (https://github.com/gitalk/gitalk)
+      # Gitalk 评论系统设置 (https://github.com/gitalk/gitalk)
+      [params.page.comment.gitalk]
+        enable = false
+        owner = ""
+        repo = ""
+        clientId = ""
+        clientSecret = ""
+      # Valine comment config (https://github.com/xCss/Valine)
+      # Valine 评论系统设置 (https://github.com/xCss/Valine)
+      [params.page.comment.valine]
+        enable = true
+        appId = "QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI"
+        appKey = "WBmoGyJtbqUswvfLh6L8iEBr"
+        placeholder = ""
+        avatar = "mp"
+        meta= ""
+        pageSize = 10
+        # automatically adapt the current theme i18n configuration when empty
+        # 为空时自动适配当前主题 i18n 配置
+        lang = ""
+        visitor = true
+        recordIP = true
+        highlight = true
+        enableQQ = false
+        serverURLs = "https://leancloud.hugoloveit.com"
+        # emoji data file name, default is "google.yml"
+        # ["apple.yml", "google.yml", "facebook.yml", "twitter.yml"]
+        # located in "themes/LoveIt/assets/lib/valine/emoji/" directory
+        # you can store your own data files in the same path under your project:
+        # "assets/lib/valine/emoji/"
+        # emoji 数据文件名称, 默认是 "google.yml"
+        # ["apple.yml", "google.yml", "facebook.yml", "twitter.yml"]
+        # 位于 "themes/LoveIt/assets/lib/valine/emoji/" 目录
+        # 可以在你的项目下相同路径存放你自己的数据文件:
+        # "assets/lib/valine/emoji/"
+        emoji = ""
+      # Facebook comment config (https://developers.facebook.com/docs/plugins/comments)
+      # Facebook 评论系统设置 (https://developers.facebook.com/docs/plugins/comments)
+      [params.page.comment.facebook]
+        enable = false
+        width = "100%"
+        numPosts = 10
+        appId = ""
+        # automatically adapt the current theme i18n configuration when empty
+        # 为空时自动适配当前主题 i18n 配置
+        languageCode = ""
+      # Telegram comments config (https://comments.app/)
+      # Telegram comments 评论系统设置 (https://comments.app/)
+      [params.page.comment.telegram]
+        enable = false
+        siteID = ""
+        limit = 5
+        height = ""
+        color = ""
+        colorful = true
+        dislikes = false
+        outlined = false
+      # Commento comment config (https://commento.io/)
+      # Commento comment 评论系统设置 (https://commento.io/)
+      [params.page.comment.commento]
+        enable = false
+      # utterances comment config (https://utteranc.es/)
+      # utterances comment 评论系统设置 (https://utteranc.es/)
+      [params.page.comment.utterances]
+        enable = false
+        # owner/repo
+        repo = ""
+        issueTerm = "pathname"
+        label = ""
+        lightTheme = "github-light"
+        darkTheme = "github-dark"
+      # giscus comment config (https://giscus.app/)
+      # giscus comment 评论系统设置 (https://giscus.app/zh-CN)
+      [params.page.comment.giscus]
+        # You can refer to the official documentation of giscus to use the following configuration.
+        # 你可以参考官方文档来使用下列配置
+        enable = false
+        repo = ""
+        repoId = ""
+        category = "Announcements"
+        categoryId = ""
+        # automatically adapt the current theme i18n configuration when empty
+        # 为空时自动适配当前主题 i18n 配置
+        lang = ""
+        mapping = "pathname"
+        reactionsEnabled = "1"
+        emitMetadata = "0"
+        inputPosition = "bottom"
+        lazyLoading = false
+        lightTheme = "light"
+        darkTheme = "dark"
+    # Third-party library config
+    # 第三方库配置
+    [params.page.library]
+      [params.page.library.css]
+        # someCSS = "some.css"
+        # located in "assets/" 位于 "assets/"
+        # Or 或者
+        # someCSS = "https://cdn.example.com/some.css"
+      [params.page.library.js]
+        # someJavascript = "some.js"
+        # located in "assets/" 位于 "assets/"
+        # Or 或者
+        # someJavascript = "https://cdn.example.com/some.js"
+    # Page SEO config
+    # 页面 SEO 配置
+    [params.page.seo]
+      # image URL
+      # 图片 URL
+      images = []
+      # Publisher info
+      # 出版者信息
+      # [params.page.seo.publisher]
+      #   name = "xxxx"
+      #   logoUrl = "/images/avatar.png"
