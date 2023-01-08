@@ -1,0 +1,1 @@
+const a=JSON.parse('{"key":"v-8daa1a0e","path":"/","title":"QuantBox - 专注系统化交易","lang":"en-US","frontmatter":{},"headers":[],"git":{"updatedTime":1673205008000,"contributors":[{"name":"Zhe Wang","email":"wangzhetju@gmail.com","commits":2}]},"filePathRelative":"README.md"}');export{a as data};
