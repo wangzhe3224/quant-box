@@ -4,16 +4,19 @@ date: 2023-02-01
 draft: false
 description: "Part 1 - Introduction to Serverless"
 images: []
-resources:
-  - name: "header"
-    src: "./header.png"
 tags: 
     - serverless
     - aws
 categories: 
     - Design
 lightgallery: true
+resources:
+- name: featured-image
+  src: header.jpg
+- name: featured-image-preview
+  src: header.jpg
 ---
+
 
 > This series is about building a systematic trading system prototype using
 >   serverless computing. Although the implementation and some explanations are
