@@ -127,6 +127,8 @@ As you found may find as well, we are not thinking about where to put the
 processing in which operating system. We are thinking about three different
 services: computation, communication, and storage.
 
+![20230202225223](https://raw.githubusercontent.com/wangzhe3224/pic_repo/master/images/20230202225223.png)
+
 Please let me use AWS serverless as example to expand each components.
 
 ### Computation
