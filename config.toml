@@ -336,8 +336,6 @@ defaultContentLanguage = "en"
       # Google Analytics
       [params.analytics.google]
         id = "G-9229ZLLPT3"
-        # whether to anonymize IP
-        anonymizeIP = true
 
     # Social share links in post page
     # 文章页面的分享信息设置
