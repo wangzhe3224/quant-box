@@ -43,9 +43,9 @@ resources:
 >   13. Serverless testing - Unit, Integration and Local test
 >   13. Serverless dev-ops - Code Pipeline
 
-Most of the contents come and will come from my dissertation for [Masters'
+<!-- Most of the contents come and will come from my dissertation for [Masters'
 degree (MSc) in Software Engineering from the University of
-Oxford](https://www.cs.ox.ac.uk/softeng/courses/subjects.html).
+Oxford](https://www.cs.ox.ac.uk/softeng/courses/subjects.html). -->
 
 ----
 
@@ -99,7 +99,9 @@ lifting. It is more about thinking without server(s).
 
 This leads us to next section: the building blocks.
 
-## Serverless building blocks
+## Serverless Building Blocks
+
+![20230202205426](https://raw.githubusercontent.com/wangzhe3224/pic_repo/master/images/20230202205426.png)
 
 What are we thinking when we create a software or an application or even trying
 to do anything with a computer?
@@ -222,6 +224,8 @@ This leads us to the next section: systematic trading software.
 But before that, let's briefly discussion the serverless architecture.
 
 ## Serverless Architecture
+
+![20230202205622](https://raw.githubusercontent.com/wangzhe3224/pic_repo/master/images/20230202205622.png)
 
 Architecture is too big as topic for a section in a blog. But I would like
 mention a few thing that I found interesting when it comes to serverless
