@@ -331,6 +331,14 @@ defaultContentLanguage = "en"
       # whether to add FullscreenControl (https://docs.mapbox.com/mapbox-gl-js/api/#fullscreencontrol)
       # 是否添加 FullscreenControl (https://docs.mapbox.com/mapbox-gl-js/api/#fullscreencontrol)
       fullscreen = true
+    [params.analytics]
+      enable = false
+      # Google Analytics
+      [params.analytics.google]
+        id = "G-9229ZLLPT3"
+        # whether to anonymize IP
+        anonymizeIP = true
+
     # Social share links in post page
     # 文章页面的分享信息设置
     [params.page.share]
@@ -365,10 +373,11 @@ defaultContentLanguage = "en"
       # Disqus comment config (https://disqus.com/)
       # Disqus 评论系统设置 (https://disqus.com/)
       [params.page.comment.disqus]
-        enable = false
+        enable = true
         # Disqus shortname to use Disqus in posts
         # Disqus 的 shortname，用来在文章中启用 Disqus 评论系统
-        shortname = ""
+        shortname = "Comment"
+
       # Gitalk comment config (https://github.com/gitalk/gitalk)
       # Gitalk 评论系统设置 (https://github.com/gitalk/gitalk)
       [params.page.comment.gitalk]
@@ -380,7 +389,7 @@ defaultContentLanguage = "en"
       # Valine comment config (https://github.com/xCss/Valine)
       # Valine 评论系统设置 (https://github.com/xCss/Valine)
       [params.page.comment.valine]
-        enable = true
+        enable = false
         appId = "QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI"
         appKey = "WBmoGyJtbqUswvfLh6L8iEBr"
         placeholder = ""
