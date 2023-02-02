@@ -1,6 +1,7 @@
 baseURL = 'https://quant.funcoder.net'
 theme = 'LoveI'
-defaultContentLanguage = "zh-cn"
+# defaultContentLanguage = "zh-cn"
+defaultContentLanguage = "en"
 
 [languages]
 
