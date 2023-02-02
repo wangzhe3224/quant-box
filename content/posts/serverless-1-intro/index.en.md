@@ -2,7 +2,7 @@
 title: "Systematic Trading Done Serverless - Part 1"
 date: 2023-02-01
 draft: false
-description: "Part 1 - Introduction to Serverless"
+description: "Part 1 - Introduction to Serverless."
 images: []
 tags: 
     - serverless
@@ -40,8 +40,8 @@ resources:
 >   10. Serverless systematic trading - Research
 >   11. Serverless systematic trading - Batched Trading Strategy
 >   12. Serverless systematic trading - Event-driven Trading Strategy
->   13. Serverless testing - Unit, integration and local test
->   13. Serverless dev-ops - Code pipeline
+>   13. Serverless testing - Unit, Integration and Local test
+>   13. Serverless dev-ops - Code Pipeline
 
 Most of the contents come and will come from my dissertation for [Masters'
 degree (MSc) in Software Engineering from the University of
@@ -49,15 +49,18 @@ Oxford](https://www.cs.ox.ac.uk/softeng/courses/subjects.html).
 
 ----
 
-{{< admonition note "To Compute or not to compute?" >}} 
-Systematic trading is all about computation.
-_whereas_   
+{{< admonition note "To Compute or not to compute?" >}} Systematic trading is
+all about computation. _whereas_   
 Serverless shires when computation is not happening.
 
-(I will explain) :(far fa-grin-squint fa-fw): 
-{{< /admonition >}}
+(I will explain) :(far fa-grin-squint fa-fw): {{< /admonition >}}
 
-Let me walk you through how these two seemingly contradictory things work together VERY well.
+Let me walk you through how these two seemingly contradictory things work
+together VERY well.
+
+This post expands this way: first, introduce what is serverless and its building 
+blocks. Then we explore why serverless may or may not fit in systematic trading 
+system design and implementation.
 
 ## What is Serverless?
 
@@ -80,37 +83,47 @@ do load-balancing, etc.
 
 To put it simple, with cloud computing, we always have unlimited linux boxes
 ready to use without thing maintain the hardwares (as long as we pay for it).
-__However, we are still coding against operating systems, our runtime__.
-For example, we need to setup a message broker cluster, say Kafka, to flow events
-around, to setup a PostgreSQL server, to think about the hard drive spaces on the box,
-setup JVM on the box to run 2 lines of Java code (sorry, this is a joke, you probably cannot create a 2 line java binary you need 3.), setup Python version to run another python process, etc.
+__However, we are still coding against operating systems, our runtime__. For
+example, we need to setup a message broker cluster, say Kafka, to flow events
+around, to setup a PostgreSQL server, to think about the hard drive spaces on
+the box, setup JVM on the box to run 2 lines of Java code (sorry, this is a
+joke, you probably cannot create a 2 line java binary you need 3.), setup Python
+version to run another python process, etc.
 
 Serverless bring us further: __it removes the operating system layer from us__.
-Technically speaking, serverless is a set of unlimited services instead of boxes ready to use.
+Technically speaking, serverless is a set of unlimited services instead of boxes
+ready to use.
 
-In the end, Serverless is not really without server, someone has to do heavy lifting. 
-It is more about thinking without server(s).
+In the end, Serverless is not really without server, someone has to do heavy
+lifting. It is more about thinking without server(s).
 
 This leads us to next section: the building blocks.
 
 ## Serverless building blocks
 
-What are we thinking when we create a software or an application or even trying to do anything with a computer?
+What are we thinking when we create a software or an application or even trying
+to do anything with a computer?
 
 - Computation
 - Communication
 - Storage
 
-For example, if I would like to trade Bitcoin on a 1 min bar data. I may do following:
+For example, if I would like to trade Bitcoin on a 1 min bar data. I may do
+following:
 
 - Call some APIs or websocket to stream data (Computation and Communication)
-- Once bar data ticks, I compute my target position based on historical information ( Computation and Communication)
-- To do that, I need to access disk/database to load long history into memory ( Storage )
-- Once I have target position, orders are computed and submitted to broker ( Computation and Communication )
-- The process waiting for other events, such as order filles, rejected or next bar ticks
+- Once bar data ticks, I compute my target position based on historical
+  information ( Computation and Communication)
+- To do that, I need to access disk/database to load long history into memory (
+  Storage )
+- Once I have target position, orders are computed and submitted to broker (
+  Computation and Communication )
+- The process waiting for other events, such as order filles, rejected or next
+  bar ticks
 
-As you found may find as well, we are not thinking about where to put the processing in which operating system.
-We are thinking about three different services: computation, communication, and storage.
+As you found may find as well, we are not thinking about where to put the
+processing in which operating system. We are thinking about three different
+services: computation, communication, and storage.
 
 Please let me use AWS serverless as example to expand each components.
 
@@ -118,20 +131,22 @@ Please let me use AWS serverless as example to expand each components.
 
 We have 2 tools in computation: `AWS Lambda` and `AWS Fargate`.
 
-Lambda is an event-driven, pay-as-you-go compute service that let you run code 
-without provisioning or managing servers. You can think Lambda as a ready to use 
+Lambda is an event-driven, pay-as-you-go compute service that let you run code
+without provisioning or managing servers. You can think Lambda as a ready to use
 container with several runtime time already setup for you.
 
-There are only two things we plug into Lambda: our business logic/computation code and 
-resources and runtime we want. Out of box, Lambda support mainstream runtimes 
-such as python, nodejs, go, rust, Java, C#.
+There are only two things we plug into Lambda: our business logic/computation
+code and resources and runtime we want. Out of box, Lambda support mainstream
+runtimes such as python, nodejs, go, rust, Java, C#.
 
-*Lambda is suitable for short lived (less than 15 minutes) and small (less than 10gb memory) computation.*
+*Lambda is suitable for short lived (less than 15 minutes) and small (less than
+10gb memory) computation.*
 
-What about long lived and big computation that Lambda cannot handle? We have `Fargate`.
+What about long lived and big computation that Lambda cannot handle? We have
+`Fargate`.
 
-Fargate is basically a container runtime managed by aws. There are also two things 
-we plugin: our code image and resource limit.
+Fargate is basically a container runtime managed by aws. There are also two
+things we plugin: our code image and resource limit.
 
 In short, serverless computation is about runtime + code and resource we need.
 
@@ -146,8 +161,10 @@ I view storage as three levels:
 AWS gives us more than those categories, but let us focus on those:
 
 - S3: long term object store, where we can put anything, text, csv, binary
-- DynamoDB: long term semi-structured store, where we put data that we want to query against
-- ElasticCache: low latency cache. ( AWS claims it has microsecond level latency.. )
+- DynamoDB: long term semi-structured store, where we put data that we want to
+  query against
+- ElasticCache: low latency cache. ( AWS claims it has microsecond level
+  latency.. )
 
 All above storage service we can assume:
 
@@ -173,79 +190,100 @@ We have to patterns of communication:
 - Workflow
     - AWS Step Function
 
-SQS is a fully managed message queuing for microservices, distributed systems, and serverless applications.
+SQS is a fully managed message queuing for microservices, distributed systems,
+and serverless applications.
 
 SNS is fully managed Pub/Sub service for A2A and A2P messaging.
 
-EventBridge is build event-driven applications at scale across AWS, existing systems, or SaaS applications
+EventBridge is build event-driven applications at scale across AWS, existing
+systems, or SaaS applications
 
-API Gateway  is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale.
+API Gateway  is a fully managed service that makes it easy for developers to
+create, publish, maintain, monitor, and secure APIs at any scale.
 
-Step Function is a new service which is a visual workflow service that helps developers use AWS services to build distributed applications, automate processes, orchestrate microservices, and create data and machine learning (ML) pipelines. 
+Step Function is a new service which is a visual workflow service that helps
+developers use AWS services to build distributed applications, automate
+processes, orchestrate microservices, and create data and machine learning (ML)
+pipelines. 
 
 ### Summary
 
 Those three types of services are exactly our new serverless building blocks.
 And they are always ready for us to use, to scale up and down.
 
-Put it in this way, there will always unlimited CPU and memory, unlimited scaled message broker, and unlimited storage readly for us to deploy our logical code and integration logic.
+Put it in this way, there will always unlimited CPU and memory, unlimited scaled
+message broker, and unlimited storage readly for us to deploy our logical code
+and integration logic.
 
-We can build pretty much anything with those components, of course including `a systematic trading system`.
+We can build pretty much anything with those components, of course including `a
+systematic trading system`.
 
 This leads us to the next section: systematic trading software.
+But before that, let's briefly discussion the serverless architecture.
 
 ## Serverless Architecture
 
-Architecture is too big as topic for a section in a blog. But I would like mention 
-a few thing that I found interesting when it comes to serverless architecture.
+Architecture is too big as topic for a section in a blog. But I would like
+mention a few thing that I found interesting when it comes to serverless
+architecture.
 
 > The tools we use have a profound (and devious) influence on our thinking
 > habits, and, therefore, on our thinking abilities.  
 > 
 > By Edsger W. Dijkstra 
 
-Serverless dynamically changed our tool box, hence changed the way we design, implement, and deploy our software.
-One of the biggest change is that serverless encourages Event-driven design and fearless scaling.
+Serverless dynamically changed our tool box, hence changed the way we design,
+implement, and deploy our software. One of the biggest change is that serverless
+encourages Event-driven design and fearless scaling.
 
-The other thing is that we need to think more about the cost of running the software. 
-Since almost all the services we have is pay as you go model, our cost is not constant 
-any more, like the good old days we have some boxes running for us all day long even doing nothing.
-Because the cost is dynamic now, we need to think about how to optimize it.
+The other thing is that we need to think more about the cost of running the
+software. Since almost all the services we have is pay as you go model, our cost
+is not constant any more, like the good old days we have some boxes running for
+us all day long even doing nothing. Because the cost is dynamic now, we need to
+think about how to optimize it.
 
-(this is why I was saying serverless shires when computation not happening. We only pay when when compute.)
+(this is why I was saying serverless shires when computation not happening. We
+only pay when when compute.)
 
-The last thing is scale of the project. Serverless Architecture is really fantastic in the 
-sense that it fits from very small ad-hoc project to large enterprise projects. 
-And as soon I adapt serverless, the design for smaller project can move to large 
-scale stepup incrementally.
+The last thing is scale of the project. Serverless Architecture is really
+fantastic in the sense that it fits from very small ad-hoc project to large
+enterprise projects. And as soon I adapt serverless, the design for smaller
+project can move to large scale stepup incrementally.
 
-For a startup type product without much traffic, aws's free tier plan will give us nearly free ride 
-of the whole infrastructure. When the project get more attention, the same code scales automatically.
-This is simply amazing.
+For a startup type product without much traffic, aws's free tier plan will give
+us nearly free ride of the whole infrastructure. When the project get more
+attention, the same code scales automatically. This is simply amazing.
 
 ## Systematic Trading Software
 
 Let's analyses what properties a systematic trading system should have:
 
 - [p1] handle the different velocities of data, from ms to days or even months.
-- [p2] handle different resource limitations. The resources here are CPU cores, memory capacity, disk space, and most importantly the time to finish the computation.
-- [p3] handle ever-increasing new predictors, new datasets, and new models that are added into the system.
-- [p4] system should be available all the time ( especially in the crypto world, market opens 24 * 7)
-- [p5] reduce costs of all kinds. This includes capital to buy and maintain the infrastructure, and human resources to manage the infrastructure.
-- [p6] be reactive. The system should be reactive to different events such as order filled, market data, or human intervention.
+- [p2] handle different resource limitations. The resources here are CPU cores,
+  memory capacity, disk space, and most importantly the time to finish the
+  computation.
+- [p3] handle ever-increasing new predictors, new datasets, and new models that
+  are added into the system.
+- [p4] system should be available all the time ( especially in the crypto world,
+  market opens 24 * 7)
+- [p5] reduce costs of all kinds. This includes capital to buy and maintain the
+  infrastructure, and human resources to manage the infrastructure.
+- [p6] be reactive. The system should be reactive to different events such as
+  order filled, market data, or human intervention.
 - [p7] be flexible. Handle new forms of data, trading rules, etc.
 - [p8] time to market should be as short as possible.
-- [p9] some systems need low latency. For example, the time between a market event to order execution can be limited to sub-milliseconds.
-- [p10] can be debugged and fixed quickly. If the systems show abnormal behaviour, we should be able to identify and fix the problem quickly.
+- [p9] some systems need low latency. For example, the time between a market
+  event to order execution can be limited to sub-milliseconds.
+- [p10] can be debugged and fixed quickly. If the systems show abnormal
+  behavior, we should be able to identify and fix the problem quickly.
 
-## Serverless the Good
+## Serverless: the Good
 
-Serverless computing is a cloud-based computing model that allows developers to
-  run their applications without having to provision or manage servers. Here are
-  some of the main benefits of using serverless and where it fits into the
-  systematic trading domain.
-
-let's see how serverless may benefit the above properties:
+- Scalability
+- High Availability
+- Reducing Cost
+- Flexibility
+- Low Operation Overhead
 
 ### Scalability
 
@@ -323,7 +361,14 @@ Serverless allows you to build event-driven applications, which can
 
 This fits in p6, p7, and p8.
 
-## Serverless the Bad
+## Serverless: the Bad
+
+- Cold Start
+- Unstable Latency
+- Vendor Lock-in
+- Hard to Debug
+- Limited State Management
+- Complex Choreography 
 
 Noticed that p9 and p10 are not mentioned in the previous section.
 
@@ -351,29 +396,37 @@ This may be harmful to p7.
 
 This may be harmful to p8.
 
-## Summary
+## The End
 
-In this series, we will explore different serverless patterns that can be used to build 
-robust systematic trading/research system, and how can we reduce the downside of serverless
-within systematic trading software.
+In this series, we will explore different serverless patterns that can be used
+to build robust systematic trading/research system, and how can we reduce the
+downside of serverless within systematic trading software.
 
-One thing I would like to mention, the native serverless tool set is __NOT__ suitable for 
-trading system requires low latency. By low latency, I mean any latency under 100ms. The reason
-is that all the messaging services (SNS, SQS, EventBridge) has a median latency ranging from 
-16ms to 400ms, and it's p99 latency can reach 1500 ms for step function![^2]
+One thing I would like to mention, the native serverless tool set is __NOT__
+suitable for trading system requires low latency. By low latency, I mean any
+latency under 100ms. The reason is that all the messaging services (SNS, SQS,
+EventBridge) has a median latency ranging from 16ms to 400ms, and it's p99
+latency can reach 1500 ms for step function![^2]
 
-Haven said that, it does not mean serverless cannot help with low latency trading.
-We all know that even for a low latency trading system, not all the parts requires
-the same latency limit. The strong benefit for serverless is that you can migrate 
-part of the system and integrate it into original software easily and incrementally.
+Haven said that, it does not mean serverless cannot help with low latency
+trading. We all know that even for a low latency trading system, not all the
+parts requires the same latency limit. The strong benefit for serverless is that
+you can migrate part of the system and integrate it into original software
+easily and incrementally.
+
+All right, I hope this part makes you feel excited to build trading system with serverless.
+With these new cool tools in the box, let's start the journey.
 
 ## Additional Fun Facts
 
 This figure gives you an idea the scale of serverless usage these days[^1]:
 
-![AWS lambda usage](https://raw.githubusercontent.com/wangzhe3224/pic_repo/master/images/20230201231216.png "AWS lambda usage")
+![AWS lambda
+usage](https://raw.githubusercontent.com/wangzhe3224/pic_repo/master/images/20230201231216.png
+"AWS lambda usage")
 
-There are 10 trillion lambda invocations (the computation service of serverless)!
+There are 10 trillion lambda invocations (the computation service of
+serverless)!
 
 [^1]: https://www.youtube.com/watch?v=0_jfH6qijVY
 [^2]: https://bitesizedserverless.com/bite/serverless-messaging-latency-compared/
