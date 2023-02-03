@@ -332,7 +332,7 @@ defaultContentLanguage = "en"
       # 是否添加 FullscreenControl (https://docs.mapbox.com/mapbox-gl-js/api/#fullscreencontrol)
       fullscreen = true
     [params.analytics]
-      enable = false
+      enable = true
       # Google Analytics
       [params.analytics.google]
         id = "G-9229ZLLPT3"
