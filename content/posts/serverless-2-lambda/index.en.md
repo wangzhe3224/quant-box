@@ -160,6 +160,13 @@ With the gain of lambda, there are some drawbacks:
 - A lot of async function can make tracking/debugging system hard.
 - Lambda's 10 gb resource limit is not great ( there is another serverless service call `Fargate` is designed for larger computation. )
 
+With those in mind, we know that `lambda` probably **not suitable for low latency 
+trading components. And if a computation takes more than 10gb memory and more then
+15 min to finish, `lambda` is not the right tool**.
+
+The other aspect is that, if you have a computation running 24 hours continuously,
+`lambda` is not the right tool. `Fargate` is the one in serverless toolbox.
+
 ## Last thought
 
 AWS `lambda` is the fundamental building block of serverless architecture.
