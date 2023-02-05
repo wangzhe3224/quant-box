@@ -1,14 +1,16 @@
 ---
-title: "Systematic Trading Done Serverless - Part 1"
+title: "Systematic Trading Done Serverless (1) - Introduction"
 date: 2023-02-01
 draft: false
-description: "Part 1 - Introduction to Serverless."
+description: "(STDS) Part 1 - Introduction to Serverless."
+summary: "(STDS) Part 1 What is serverless? Why it is a good fit for systematic trading system?"
 images: []
 tags: 
     - serverless
     - aws
+    - systematic-trading
 categories: 
-    - Design
+    - Software Design
 lightgallery: true
 resources:
 - name: featured-image
