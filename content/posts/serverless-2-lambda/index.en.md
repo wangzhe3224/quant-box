@@ -9,6 +9,7 @@ tags:
     - aws
     - lambda
     - systematic-trading
+    - building-block
 categories: 
     - Software Design
 lightgallery: true
