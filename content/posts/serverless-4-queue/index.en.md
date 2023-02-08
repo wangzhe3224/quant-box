@@ -2,8 +2,8 @@
 title: "Systematic Trading Done Serverless (4) - Queue"
 date: 2023-02-08
 draft: false
-description: "(STDS) Part 4 - " 
-summary: "(STDS) Part 4 - "
+description: "(STDS) Part 4 - Simple Queue Service (SQS)" 
+summary: "(STDS) Part 4 - What is SQS? How to use SQS? Concrete use case of SQS"
 tags: 
     - serverless
     - aws
