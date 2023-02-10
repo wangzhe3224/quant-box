@@ -8,7 +8,7 @@ tags:
     - serverless
     - aws
     - sqs
-    - building-block
+    - stds
 categories: 
     - Software Design
 lightgallery: true

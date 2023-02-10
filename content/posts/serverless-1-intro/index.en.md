@@ -9,6 +9,7 @@ tags:
     - serverless
     - aws
     - systematic-trading
+    - stds
 categories: 
     - Software Design
 lightgallery: true
