@@ -28,10 +28,10 @@ resources:
 >   prototype is a building in progress as well. Haven't said that, here is my
 >   plan:  
 > 
->   1. Introduction to Serverless
->   2. Computation for short- Lambda
->   3. Computation for long - Fargate
->   4. Communication - Queue
+>   1. [Introduction to Serverless](https://quant.funcoder.net/posts/serverless-1-intro/)
+>   2. [Computation for short- Lambda](https://quant.funcoder.net/posts/serverless-2-lambda/)
+>   3. [Computation for long - Fargate](https://quant.funcoder.net/posts/serverless-3-fargate/)
+>   4. [Communication - Queue](https://quant.funcoder.net/posts/serverless-4-queue/)
 >   5. Communication - Message Bus
 >   6. Storage for objects - S3
 >   7. Storage for semi-structured data - DynamoDB
