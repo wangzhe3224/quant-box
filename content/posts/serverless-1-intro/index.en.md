@@ -35,7 +35,7 @@ resources:
 >   4. [Communication - Queue](https://quant.funcoder.net/posts/serverless-4-queue/)
 >   5. Communication - Message Bus
 >   6. Storage for objects - S3
->   7. Storage for semi-structured data - DynamoDB
+>   7. [Storage for semi-structured data - DynamoDB](https://quant.funcoder.net/posts/serverless-7-dynamodb/)
 >   8. API design and implementation - API Gateway
 >   8. Orchestration with workflow - Step Functions
 >   9. Serverless systematic trading - Daily Data
