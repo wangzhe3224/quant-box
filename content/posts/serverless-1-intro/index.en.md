@@ -38,7 +38,7 @@ resources:
 >   7. [Storage for semi-structured data - DynamoDB](https://quant.funcoder.net/posts/serverless-7-dynamodb/)
 >   8. API design and implementation - API Gateway
 >   8. Orchestration with workflow - Step Functions
->   9. Serverless systematic trading - Daily Data
+>   9. [Serverless systematic trading - Daily Data](https://quant.funcoder.net/posts/insider_trade_pipeline/)
 >   9. Serverless systematic trading - Intraday Data
 >   10. Serverless systematic trading - Research
 >   11. Serverless systematic trading - Batched Trading Strategy
