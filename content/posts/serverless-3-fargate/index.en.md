@@ -1,7 +1,7 @@
 ---
 title: "Systematic Trading Done Serverless (3) - Fargate"
 date: 2023-02-07
-draft: false
+draft: true
 description: "(STDS) Part 3 - Compute with Fargate. What is Fargate? Why using Fargate? Compare with Lambda?"
 summary: "(STDS) Part 3 - Compute with Fargate. What is Fargate? Why using Fargate? Compare with Lambda?"
 tags: 

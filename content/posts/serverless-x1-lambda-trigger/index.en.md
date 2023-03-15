@@ -1,7 +1,7 @@
 ---
 title: "STDS x1 - Triggers of AWS Lambda"
 date: 2023-02-10
-draft: false
+draft: true
 description: "STDS X1 - Lambda is powerful, triggers are the handler to the power"
 summary: "Systematic Trading Done Serverless (STDS) x1 - Introduces all kinds of lambda triggers, which is at the heart of serverless event driven design"
 images: []

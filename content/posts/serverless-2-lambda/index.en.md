@@ -1,7 +1,7 @@
 ---
 title: "Systematic Trading Done Serverless (2) - Lambda"
 date: 2023-02-04
-draft: false
+draft: true
 description: "(STDS) Part 2 - Compute with Lambda. What is lambda? Why using lambda? How to use lambda? and downside of lambda."
 summary: "(STDS) Part 2 - Compute with Lambda. What is lambda? Why using lambda? How to use lambda? and downside of lambda."
 tags: 

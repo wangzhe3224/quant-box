@@ -1,7 +1,7 @@
 ---
 title: "Systematic Trading Done Serverless (7) - DynamoDB"
 date: 2023-02-13
-draft: false
+draft: true
 description: "(STDS) 7 - DynamoDB"
 summary: "(STDS) 7 DynamoDB"
 images: []

@@ -1,7 +1,7 @@
 ---
 title: "Serverless Data Pipeline - SEC Insider Trades (Form 4)"
 date: 2023-02-17
-draft: false
+draft: true
 description: "Demo how to build a data processing pipeline with serverless on aws."
 summary: "Demo how to build a data processing pipeline with serverless on aws."
 images: []
